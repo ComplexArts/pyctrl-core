@@ -56,6 +56,7 @@ class TestUnittestAssertions(unittest.TestCase):
         class MyThread(Thread):
 
             def __init__(self, clock, test, maxiters, sleep_time):
+                super().__init__()
                 self.clock = clock
                 self.test = test
                 self.maxiters = maxiters
@@ -72,8 +73,8 @@ class TestUnittestAssertions(unittest.TestCase):
                 self.count = 0
 
             def increment(self, inc=1):
-                print('count = {}'.format(self.count))
                 self.count += inc
+                print('count = {}'.format(self.count))
 
         Ts = 0.1
 

@@ -10,7 +10,7 @@ class Clock(Thread):
     """
 
     def __init__(self, interval, function, args=None, kwargs=None):
-        super().__init__(self)
+        super().__init__()
         self.interval = interval
         self.function = function
         self.args = args if args is not None else []
@@ -24,7 +24,7 @@ class Clock(Thread):
 
     def join(self):
         if self.running:
-            self._finished.wait()
+            self.finished.wait()
             super().join()
 
     def run(self):
